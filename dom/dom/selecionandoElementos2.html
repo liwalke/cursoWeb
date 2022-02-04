@@ -9,8 +9,34 @@
     <div id="primeiro">#primeiro</div>
     <div>Segundo</div>
     <div class="terceiro ultimo"><span wb-attrib>.terceiro .ultimo</span></div>
-    <script>              
-        // ...
+    <script>
+        //IMPORTANTE: document.querySelector() retorna um nodeList que possui o método forEach, facilita né?!
+
+        //Como é possível selecionar qualquer seletor, é necessário especificar se for classe com . e se for id com #
+        document.querySelector('#primeiro').classList.add('destaque') //Foi selecionado o elemento com id primeiro
+
+        //Para facilitar foi criado duas funções
+        const selecionar = seletor =>
+            document.querySelectorAll(seletor).forEach(e => e.classList.add('destaque'))
+        const deselecionar = seletor =>
+            document.querySelectorAll(seletor).forEach(e => e.classList.remove('destaque'))
+
+        selecionar('div') //Todo elemento que for div será destacado
+
+        deselecionar('*') //Seletor universal para remover o destaque de todos elementos
+        selecionar('.terceiro.ultimo') //Aplica o detaque ao elemento que possui as duas classes (terceiro e ultimo) não somente uma
+
+        deselecionar('*')
+        selecionar(':not(#primeiro)') //Seleciona todos elementos menos o #primeiro
+
+        deselecionar('*')
+        selecionar(':nth-child(1)') //Seleciona o primeiro filho de todos elementos
+
+        deselecionar('*')
+        selecionar('div:nth-of-type(1)') //Seleciona o primeiro elemento do tipo div, poderia ser do tipo span ou qualquer outro..
+
+        deselecionar('*')
+        selecionar('[wb-attrib]') //Seleciona o elemento que possui o atributo passado entre [], atributos precisam ser passado entre [].
     </script>
 </body>
 </html>
