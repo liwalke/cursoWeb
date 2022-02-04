@@ -1,0 +1,53 @@
+<table>
+    <caption>Produtos</caption>
+    <thead>
+        <tr> <!-- tr (table row) - É basicamente uma linha da tabela-->
+            <th>Produtos</th> <!-- th (table head)-->
+            <th>Preço</th>
+            <th>Quantidade</th>
+            <th>Total</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr> <!-- tr (table roll) - Linha -->
+            <td>iPad</td> <!-- td (table data) - será o primeiro valor nessa linha-->
+            <td>3289,00</td>
+            <td>5</td>
+            <td>16445,0</td>
+        </tr>
+        <tr> <!-- Outra linha -->
+            <td>Samsuns S9</td>
+            <td>2649,00</td>
+            <td>8</td>
+            <td>21192,00</td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="3" >Total</td> <!-- colspan (a célula vai conter mais colunas) rowspan (a célula vai conter mais linhas) -->
+            <td>37637,00</td>
+        </tr>
+    </tfoot>
+
+    <!-- OBS.: O thead, tbody e o tfoot não são necessários para renderizar, mas é importante usar por padrão semântico-->
+</table>
+
+<style>
+    table {
+        border-collapse: collapse;
+    }
+    th, td{
+        padding: 10px;
+    }
+    thead tr{
+        border-bottom: solid 3px #444;
+    }
+    tbody tr:hover {
+        background-color: #dedede;
+    }
+    tfoot{
+        background-color: #444;
+        font-weight: bold;
+        color: #fff;
+    }
+</style>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Display</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">  
+    <style>
+        body {
+            font-family: 'Bebas Neue';
+            font-size: 40px;
+            color: white;
+            background-color: coral;
+        }
+
+        ul { padding: 0px;}
+        div { background-color: seagreen;}
+        span { background-color: dodgerblue;}
+        li { background-color: purple;}
+
+        div, span, li {
+            width: 50%; /*valor realtivo*/
+            width: 200px; /*valor absoluto*/
+            height: auto;
+            padding: 30px;
+            text-align: center;
+            /*Todos estilos acima não se aplicam a span. Somente se o span receber display: block*/
+            display: block;
+            /*Após o span receber atribuição de block ele se comporta como uma div, eu acho*/
+            
+            /*display: inline - Agora todos passam a se comportar como um span. Nesse caso, não é aplicado width e height.
+            Também correrá uma quebra de linha por causa do ul.*/
+            display: inline;
+
+            /*display: inline-block - mantém inline e considera widht and height.*/
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+    <div>Texto 1</div>
+    <span>Texto 2</span>
+    <span>Texto 3</span>
+    <ul>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+    </ul>
+</body>
+
+</html>

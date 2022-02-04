@@ -1,0 +1,85 @@
+<h1>Formulário</h1>
+
+<form action="http://localhost:3003/usuarios" method="Post">
+    <!--Entrada de texto-->
+    <input type="text" name="nome">
+
+    <!--Entrada do tipo senha, o navagador some com os caracteres...-->
+    <input type="password" name="senha">
+
+    <!--Entrada do tipo texo com área (colunas x linhas)-->
+    <textarea name="bio" cols="30" rows="10"></textarea>
+
+    <!--Estrutura com entrada do tipo seletor de opções-->
+    <div>
+        <input type="radio" name="tipo" value="admin"> Admin
+        <input type="radio" name="tipo" value="regular"> Regular
+        <input type="radio" name="Tipo" value="professor"> Professor
+    </div>
+
+    <!--Entrada do tipo check box-->
+    <div>
+        <input type="checkbox" name="ativo">Ativo
+    </div>
+
+    <!--Caixa seletora de uma opção dentre várias-->
+    <select name="estado">
+        <option value="">Selecione</option>
+        <option value="AC">Acre</option>
+        <option value="AL">Alagoas</option>
+        <option value="AP">Amapá</option>
+        <option value="AM">Amazonas</option>
+        <option value="BA">Bahia</option>
+        <option value="CE">Ceará</option>
+        <option value="DF">Distrito Federal</option>
+        <option value="ES">Espírito Santo</option>
+        <option value="GO">Goiás</option>
+        <option value="MA">Maranhão</option>
+        <option value="MT">Mato Grosso</option>
+        <option value="MS">Mato Grosso do Sul</option>
+        <option value="MG">Minas Gerais</option>
+        <option value="PA">Pará</option>
+        <option value="PB">Paraíba</option>
+        <option value="PR">Paraná</option>
+        <option value="PE">Pernambuco</option>
+        <option value="PI">Piauí</option>
+        <option value="RJ">Rio de Janeiro</option>
+        <option value="RN">Rio Grande do Norte</option>
+        <option value="RS">Rio Grande do Sul</option>
+        <option value="RO">Rondônia</option>
+        <option value="RR">Roraima</option>
+        <option value="SC">Santa Catarina</option>
+        <option value="SP">São Paulo</option>
+        <option value="SE">Sergipe</option>
+        <option value="TO">Tocantins</option>
+    </select>
+
+    <!--Caixa seletora de várias opções dentro de várias. Nesse exemplo é preciso segurar o Ctrl-->
+    <select name="interesses" multiple size="5">
+        <option value="js">JavaScript</option>
+        <option value="java">Java</option>
+        <option value="python">Python</option>
+        <option value="node">Node.JS</option>
+        <option value="php">PHP</option>
+        <option value="c++">C++</option>
+        <option value="c#">C#</option>
+        <option value="go">GO</option>
+        <option value="html">HTML</option>
+        <option value="css">CSS</option>
+    </select>
+
+    <button>Incluir</button>
+</form>
+<style>
+    input,
+    textarea {
+        display: block;
+        margin-bottom: 15px;
+    }
+    input[type=radio]{
+        display: inline;
+    }
+    input[type=checkbox]{
+        display: inline;
+    }
+</style>

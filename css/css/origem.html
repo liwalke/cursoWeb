@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Origem CSS: Externo, Interno e Inline</title>
+    <style>
+        body {
+            background-color: skyblue;
+        }
+        </style>
+        
+        <!--Abaixo exemplo de uma importação de um css-->
+        <link rel="stylesheet" href="css/externo.css">
+</head>
+
+<body style="background-color: thistle;"> <!--style inline (Não é uma boa prática) - será aplicado este background em body devido ser o último a ser processado-->
+    <h1>E agora?</h1>
+</body>
+
+</html>

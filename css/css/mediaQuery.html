@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Media Query</title>
+    <style>
+        div {
+            font-size: 40px;
+            margin: 20px;
+            padding: 20px;
+            background-color: coral;
+            border: solid 5px;
+            display: none;
+        }
+
+        /* Dentro dos parênteses fica o critério para aplicar a definição da media query*/
+        /* Se a largura for no máximo 600px será aplicado a classe .muito-pequeno*/
+        @media (max-width: 600px) {
+            .muito-pequeno { display: block; }
+        }
+
+        /* CONDIÇÃO "OR" é definida por vírgula */
+        /* Vai exibir se a largura for menor que 1000px ou a orientação for retrato.*/
+        @media (max-width: 1000px), (orientation: portrait) { /*portrait: retrato - landscape: paisagem*/
+            .pequeno-retrato { display: block;} 
+        }
+
+        /* CONDIÇÃO "AND" é definida com a sintaxe and entre os parêntese*/
+        /* Vai exibir se a largura for entre 500px e 1000px. */
+        @media (min-width: 500px) and (max-width: 1000px){
+            .intervalo { display: block; }
+        }
+    </style>
+</head>
+<body>
+    <div class="muito-pequeno">Muito Pequeno</div>
+    <div class="pequeno-retrato">Pequeno ou Retrato</div>
+    <div class="intervalo">Intervalo</div>
+</body>
+</html>

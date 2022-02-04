@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Float</title>
+    <style>
+        body {
+            background-color: #222;
+        }
+
+        .c1 {
+            background-color: red;
+            float: right; /*Usando o float, o componente passa se desloca em um frame mais avançado, podendo cobrir outros elementos*/
+        }
+
+        .c2 {
+            background-color: green;
+            clear: right; /*Ao usar o clear, o elemento com clear passa a considerar a existência de algum float na posição passada como parâmetro (left/right) não ocupando o mesmo lugar*/
+            float: left;
+        }
+        
+        .c3 {
+            background-color: blue;
+            clear: left;
+        }
+
+        .c4 {
+            background-color: orange;
+            float: right;
+        }
+
+        div {
+            width: 150px;
+            height: 150px;
+        }
+
+        /*Resumindo: Não é muito bom usar essa parada. Parece que tem outra solução chamada flex box que é mais funcional.*/
+    </style>
+</head>
+
+<body>
+    <div class="c1"></div>
+    <div class="c2"></div>
+    <div class="c3"></div>
+    <div class="c4"></div>
+</body>
+
+</html>

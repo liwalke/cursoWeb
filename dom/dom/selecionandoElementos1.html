@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Selecionar Elementos #01</title>
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body class="conteudo exercicio">
+    <div id="primeiro">#primeiro</div>
+    <div>Segundo</div>
+    <div class="terceiro ultimo">.terceiro .ultimo</div>
+    <script>
+        //OBS.: Os métodos abaixo retornam HTML colection, que não são arrays, então é preciso converter para array...
+        
+        //Pega o elemento com o id="primeiro" e adiciona a classe destaque
+        document.getElementById('primeiro').classList.add('destaque') //como já espera um elemento, não é preciso o #
+        
+        //Pega todos elementos div e remove a classe destaque
+        //Primeiro é retornado um HTML collection com todos elementos que são div
+        const divs = document.getElementsByTagName('div')
+        
+        //Depois o HTML collection é convertido para array e removido a classe destaque de cada elemento
+        Array.from(divs).forEach(e => e.classList.remove('destaque'))
+
+        //Outra forma de converter para array é com spread operator
+        const divsArray = [...divs] //Espalha todos elementos do html collection em um array
+        divsArray.forEach(e => e.classList.add('destaque')) //Sendo possível adicionar a classe destaque em todos elementos
+
+        //Outra forma de percorrer o html collection é com o for, pois o html collection é um iterator
+        const ultimosElementos = document.getElementsByClassName('ultimo')
+        for(let e of ultimosElementos) {
+            e.classList.remove('destaque')
+        }
+</script>
+</body>
+</html>

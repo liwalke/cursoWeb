@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Anatomia CSS</title>
+    <style>
+        .selector {
+            color: #fff;
+            font-size: 100px;
+            text-align: center;
+            border: solid 5px navy; /*shorthand property*/
+            font-family: Impact, 'Arial Narrow Bold', sans-serif; /*Mútiplas opções, se não der a primeira vai na segunda*/
+            width: calc(100% - 40px); /*Valor calculado, 100% do tamanho da tela menos 100px*/
+            background-color: rgb(134, 153, 189);
+        }
+
+        /*Usando uma pseudo-classe ":" - O horver aplica um estilo ao passar o mouse sobre o elemento*/
+        .selector:hover {
+            background-color: rgb(109, 149, 189);
+        }
+
+        /*Usando um pseudo-elemento "::" - first-letter aplica um estilo somente à primeira letra*/
+        .selector::first-letter {
+            font-size: 120px;
+            font-family: cursive;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="selector">Conteúdo</div>
+</body>
+
+</html>

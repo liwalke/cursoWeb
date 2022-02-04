@@ -1,0 +1,1 @@
+const saudacao = require('./passandoParam')('Elizeu', 'Juca', 'Ana', 'Bia')

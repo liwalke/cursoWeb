@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Grid #01</title>
+    <style>
+        /* https://caniuse.com/#feat=css-grid */
+        
+        html,
+        body {
+            margin: 20px;
+            height: calc(100% - 40px);
+            background-color: lightgray;
+        }
+        
+        div {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            border: solid 5px dodgerblue;
+            background: #fff;
+        }
+        body {
+            display: grid;
+            
+            grid-template-columns: 50% 50%; /*Terá duas colunas com o tamanho divido em 50% para cada*/
+            
+            grid-template-columns: repeat(4, 8.33% 8.33% 8.33%); /*Repete 4 x (coluna 1: 8.33% - coluna 2: 8.33% - coluna 3: 8.33%), resultando em 12 colunas de 8.33%*/
+            
+            grid-template-columns: repeat(12, 8.33%); /*Mesmo resultado que a linha acima*/
+            
+            grid-template-columns: repeat(11, 100px) 200px; /*11 colunas com 100px e a ultima com 200px*/
+
+            grid-template-columns: 200px 20% 1fr; /*1ª coluna: 200px - 2ª coluna: 20% - 3ª coluna: Fica com resto. 1fr = 1 fragmento*/
+
+            grid-template-columns: 1fr 2fr 1fr; /*3 colunas sendo a segunda com 2 fragmentos do tamanho*/
+
+            grid-template-rows: 50% 25% 12.5% 12.5%; /*4 linhas com as porcentagens definidas*/
+
+            grid-template-rows: 100px 1fr; /*1ª linha com 100px, 2ª linha com o resto e as outras linhas ficam com o tamanho mínimo sufuciente para couber o elemento*/
+
+            grid-template-rows: 100px auto auto auto;
+        }
+
+        .d8 {
+
+            /*O elemento d8 passa ocupar mais o espaço ao lado após definir que a sua coluna inicia na linha 2 e termina na 4*/
+            grid-column-start: 2;
+            grid-column-end: 4;
+            grid-column-end: span 2; /*Tem a mesma função das duas linhas acima*/
+
+            /*O elemento d8 passa ocupar mais 2 espaços abaixo após definir que a sua coluna inicia na linha 2 e termina na 4*/
+            grid-row-start: 3;
+            grid-row-end: 5;
+            grid-row-end: span 2; /*Tem a mesma função das duas linhas acima*/
+        }
+
+        .d10,
+        .d11 {
+            /*Exemplo para mostrar que as linhas podem se sebrepor. Elementos 10 e 11 serão sobrepostos*/
+            grid-column-start: 1;
+            grid-column-end: 3;
+            grid-row-start: 5;
+            grid-row-end: span 1;
+        }
+
+        .d10 {
+            z-index: 1; /*Joga o elemento em outro contexto, trazendo-o para frente*/
+        }
+    </style>
+</head>
+
+<body>
+    <div class="d1">1</div>
+    <div class="d2">2</div>
+    <div class="d3">3</div>
+    <div class="d4">4</div>
+    <div class="d5">5</div>
+    <div class="d6">6</div>
+    <div class="d7">7</div>
+    <div class="d8">8</div>
+    <div class="d9">9</div>
+    <div class="d10">10</div>
+    <div class="d11">11</div>
+    <div class="d12">12</div>
+</body>
+
+</html>

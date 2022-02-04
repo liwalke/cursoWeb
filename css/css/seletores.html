@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Selectors</title>
+    <link rel="stylesheet" href="css/tag.css">
+    <style>
+        /* 
+        Seletor universal
+        * {
+            color: whitesmoke;
+            background-color: rgb(175, 145, 88);
+        } */
+        /*
+        Seletor de classe
+        .tag {
+            color: whitesmoke;
+            background-color: rgb(175, 145, 88);
+        } */
+        /*
+        Seletor por ID
+        #aprovados {
+            color: whitesmoke;
+            background-color: rgb(175, 145, 88);
+        } */
+        /*
+        Seletor do filho direto de aninhado
+        #aninhado > div {
+            color: whitesmoke;
+            background-color: rgb(175, 145, 88);
+        } */
+        /*
+        Assim não funciona pq section não é filho direto de aninhado
+        #aninhado > section {
+            color: whitesmoke;
+            background-color: rgb(175, 145, 88);
+        } */
+        /*
+        Assim selecionará qualquer descendente de aninhado
+        #aninhado section {
+            color: whitesmoke;
+            background-color: rgb(175, 145, 88);
+        } */
+        /*
+        Seletor de irmãos localizados juntos (Vai selecionar os locais onde tem p seguido de ul)
+        p + ul {
+            color: whitesmoke;
+            background-color: rgb(175, 145, 88);
+        } */
+        /*
+        Seletor de irmãos gerais (general siblings)
+        p ~ ol {
+            color: whitesmoke;
+            background-color: rgb(175, 145, 88);
+        } */
+        /*
+        seletor de atributos
+        [feira] {
+            color: whitesmoke;
+            background-color: rgb(175, 145, 88);
+        } */
+        /*
+        Seletor de atributos com valor (~ significa que vai procurar por o valor individual)
+        [feira~=escritorio] {
+            color: whitesmoke;
+            background-color: rgb(175, 145, 88);
+        } */
+        /*
+        Seletor de atributos com valor (* significa que o valor passado no css precisa estar contido dentro do valor do atributo no html)
+        [feira*=sa] {
+            color: whitesmoke;
+            background-color: rgb(175, 145, 88);
+        } */
+        /*
+        Seletor do filho de alguém que é do tipo span
+        span:nth-child(1) {
+            color: whitesmoke;
+            background-color: rgb(175, 145, 88);
+        } */
+        /* section > :nth-child(odd) {
+            color: whitesmoke;
+            background-color: rgb(175, 145, 88);
+        }
+        Acima, dentro da section procura os filhos ímpares. Abaixo, procura os filhos pares.
+        section > :nth-child(even) {
+            color: whitesmoke;
+            background-color: rgb(56, 49, 36);
+        } */
+    </style>
+</head>
+
+<body>
+    <div class='tag'>
+        <div class='tag'>
+            <p class='tag'>1</p>
+            <ul class='tag' feira='casa'>
+                <li>Arroz</li>
+                <li>Feijão</li>
+            </ul>
+            <ul class='tag' feira='escritorio empresa'>
+                <li>Café</li>
+                <li>Água</li>
+            </ul>
+            <ol id='aprovados' class='tag'>
+                <li>Maria</li>
+                <li>Pedro</li>
+                <li>Ana</li>
+            </ol>
+            <div id='aninhado' class='tag'>
+                <div class="tag">
+                    <section class='tag nolabel'>
+                        <span class='tag'>1</span>
+                        <p class='tag'>2</p>
+                        <span class='tag'>3</span>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/tag.js"></script>
+</body>
+
+</html>

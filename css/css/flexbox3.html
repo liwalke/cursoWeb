@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Flexbox #03</title>
+    <link rel="stylesheet" href="css/tag.css">
+    <style>
+        div {
+            font-size: 40px;
+        }
+
+        .flex-container div {
+            box-sizing: border-box;
+        }
+
+        .flex-container {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .flex-container div {
+            flex-basis: 100px; /*Define o tamanho dos elementos internos no container, no SENTIDO DO MAIN AXIS*/
+            width: 200px; /*Define a largura, porém se tiver um flex-basis já definido que afete a largura, o width não terá efeito*/
+        }
+
+        .flex-container div:nth-child(4) {
+            /* A propriedade flex consegue definir múltiplos parãmetros (grow, shrink e basis)*/
+            flex: 3 6 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="flex-container tag nolabel">
+        <div class="tag nolabel">1</div>
+        <div class="tag nolabel">2</div>
+        <div class="tag nolabel">3</div>
+        <div class="tag nolabel">4</div>
+    </div>
+    <script src="js/tag.js"></script>
+</body>
+
+</html>
