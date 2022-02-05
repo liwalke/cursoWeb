@@ -31,7 +31,18 @@
         <button>Pesquisar</button>
     </form>
     <script>
-        // ...
+        console.log(document.forms) /*retorna uma html collection com somente um elemento encontrado, nesse caso, podendo ser mais*/
+        console.log(document.forms[0]) //retorna somente o elemento do índice 0 da hmtl collection
+        console.log(document.getElementsByName('pesquisa')) //retorna um node list com todos elementos encontrados
+        console.log(document.pesquisa) //retorna o primeiro elemento pesquisa encontrado
+        console.log(document.pesquisa.q) //retorna o elemento com o name q dentro de pesquisa
+
+        //atribuição de valores
+        document.pesquisa.q.value = 'Linux'
+        document.pesquisa.hl.value = 'en-us' //Ao mudar o valor, será alterado a exibição na tela de acordo com o conteúdo da tag hl. valor é diferente do conteúdo
+        
+        //Essa paradinha aqui pega o index selecionado no select
+        console.log(document.pesquisa.hl.selectedIndex)
     </script>
 </body>
 
