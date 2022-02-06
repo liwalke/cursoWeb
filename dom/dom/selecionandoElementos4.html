@@ -22,7 +22,40 @@
         <p>Fim</p>
     </div>
     <script>
-        // ...
+        //Formas de navegar entre os elementos na DOM
+
+        //Primeiro vai ser adicionado no prototype de algumas estruturas a função de log para exibir no console
+        function log() {
+            console.log(this)
+        }
+        HTMLCollection.prototype.log = log
+        HTMLElement.prototype.log = log
+        NodeList.prototype.log = log
+        Node.prototype.log = log
+
+        //Primeiro será selecionado a lista, depois será acessado outros elementos relacionados a essa lista ul
+        const lista = document.querySelector('div ul')
+
+        lista.parentNode.log() //Retorna o nó pai da lista que é uma div
+        lista.childNodes.log() //childNodes retorna todas li da lista ul e os espaços como text.
+        
+        const primeiro = lista.firstChild //Atribui o primeiro elemento da lista a uma variável
+        primeiro.log() //Exibe o text porque o child faz isso
+        primeiro.nextSibling.log() //Retorna e exibe o primeiro elemento
+
+        const ultimo = lista.lastChild //Seleciona o ultimo elemento
+        ultimo.log() //Exibe o maldito texto
+        ultimo.previousSibling.log() //Exibe o ultimo elemento real
+
+        //Abaixo métodos que retornam somente os elementos em estrutura diferente HTML Collection
+        lista.children.log() //HTML Collection somente com os elementos li..
+        lista.firstElementChild.log() //Primeira li
+        lista.lastElementChild.log() //Última li
+        lista.parentNode.previousElementSibling.log() //Irmão anterior ao elemento pai da lista ul, nesse caso é a primeira div
+        lista.parentNode.nextElementSibling.log() //Irmão seguinte do pai
+
+        //Algumas aplicação será necessário percorrer/navegar os objetos, porém caso queira acessar diretamente algum elemento é melhor usar um querySelector
+        document.querySelectorAll('div ul li')// Pronto, todos elementos
     </script>
 </body>
 

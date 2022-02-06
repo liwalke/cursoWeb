@@ -17,8 +17,29 @@
         </ul>
     </div>
     <script>
-        // ...
-    </script>
+        const lista = document.querySelector('div ul[destino="escritório"]') //Poderia ser selecionado com ('#compras'), mas essa é mais uma opção
+        console.log('Elemento "ul"............')
+        console.log('childNodes', lista.childNodes) //Retorna uma NodeList com elementos e textos... Bem ruim, melhor usar lista.children
+        console.log('destino', lista.destino) //Notação ponto não reconhece atributos que não são nativos do html, no arquivo acessandoAtributos3, tem uma forma de acessar atributos personalizados com notação ponto.
+        console.log('id', lista.id) //Notação ponto só reconhece atributos nativos do html como id
+        console.log('getAttribute', lista.getAttribute('destino')) //Retorna o valor do atributo, nessa caso = escritório
+        console.log('hasAttribute', lista.hasAttribute('destino')) //Retorna true or false
+        lista.setAttribute('destino', 'empresa') //Altera o valor do atributo
+        lista.setAttribute('status', 'aberto') //Altera se ja existe, se não cria um novo atributo + valor. setAttribute => altera/inclui
+        lista.removeAttribute('destino') //Remove atributo + valor
+        
+        /*Por padrão é esperado que nos atributos personalizados seja adicionado o prefixo data-, por exemplo, data-urgencia (linha 13)
+            Porém, nçao tem problema em usar o padrão sem o prefixo, o que muda é que tem um tratamento diferente conforme abaixo:*/
+        console.log(lista.dataset.urgencia) //Para acessar com notação ponto tem que ter .dataset
+        lista.dataset.urgencia = 4 //Altera o valor
+        console.log(lista.getAttribute('data-urgencia')) //Para acessar com getAttribute é preciso incluir o prefixo data-
+
+        //Attention - Nem todos atributos padrão do html estarão disponível para acesso com o mesmo nome no javaScript
+        const label = document.querySelector('label')
+        console.log(label.for) //Não estará disponível para acesso. Acredito que seja por ser uma palavra reservada de JS
+        console.log(label.htmlFor) //Para acessar é usado a htmlFor
+        console.log(label.getAttribute('for')) //Ou usando o getAttribute
+        </script>
 </body>
 
 </html>

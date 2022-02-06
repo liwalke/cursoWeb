@@ -12,7 +12,29 @@
         Classes
     </div>
     <script>
-        // ...
+        const classes = document.querySelector('div').classList
+
+        classes.add('destaque')
+        classes.remove('destaque')
+        classes.toggle('destaque')
+        
+        console.log(classes.contains('destaque'))
+        console.log(classes.length)
+        classes.toggle('destaque')
+        console.log(classes.length)
+        
+        classes.add('destaque1') //Não existe estilo para esta classe, somente para teste
+        classes.add('destaque2') //Não existe estilo para esta classe, somente para teste
+        console.log(classes.length)
+        //Opção de iteração 1
+        for(let c of classes) {
+            console.log(c)
+        }
+        
+        //Opção de iteração 2
+        classes.forEach(c => console.log(c))
+
+        //A outra opção é converter essa estrutura em um array, daí usar os métodos de iteração do array.
     </script>
 </body>
 
