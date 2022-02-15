@@ -37,15 +37,36 @@
 </head>
 
 <body>
-    <div class="esquerda" wm-dropzone>
+    <div class="esquerda" dropzone>
         <div class="item">1</div>
         <div class="item">2</div>
         <div class="item">3</div>
         <div class="item">4</div>
     </div>
-    <div class="direita" wm-dropzone></div>
+    <div class="direita" dropzone></div>
     <script>
-        // ...
+        // Trabalhando com Drag and Drop
+
+        const items = document.querySelectorAll('[dropzone] .item')
+
+        //Adiciona id, se não tiver, e seta o item como draggable
+        items.forEach((item, index) => {
+            item.draggable = true
+            item.id = item.id || `droggable-item-${index}`
+            item.ondragstart = e =>
+                e.dataTransfer.setData('item-id', e.target.id)
+        })
+
+        const dropzones = document.querySelectorAll('[dropzone]')
+        dropzones.forEach(dropzone => {
+            dropzone. ondragover = e => e.preventDefault()
+            dropzone.ondrop = function(e) {
+                const id = e.dataTransfer.getData('item-id')
+                const item = document.getElementById(id)
+                // e.target.appendChild(item) //Habilitando essa linha e bloqueando a linha abaixo, é possível colocar elemento dentro de elemento
+                dropzone.appendChild(item) //Habilitando essa linha os elementos não se sobrepoem
+            }
+        })
     </script>
 </body>
 

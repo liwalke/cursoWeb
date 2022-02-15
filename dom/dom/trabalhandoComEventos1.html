@@ -7,11 +7,48 @@
     <link rel='stylesheet' href='css/estilo.css'>
 </head>
 
+<!--O objetivo é fazer que o redirecionamento ocorra após um tempo-->
+
+<body class="conteudo exercicio">
+    <div>
+        <a tempo-espera="5" href="https://google.com.br">Google</a><!--Inserido um atributo personalizado-->
+    </div>
+    <script>
+        function navegarEmXseg(e) {
+            //Cancela o evento se for cancelável, sem parar a propagação do mesmo
+            e.preventDefault();
+
+            //Pega o valor do atributo que é o tempo
+            const tempo =  parseInt(e.target.getAttribute('tempo-espera'))
+            
+            setTimeout(()=> {
+                //target é o elemento do evento, nesse caso é a tag a.
+                const link = e.target
+
+                //Como o evento foi concelado com preventDefault, é necessário fazer novamente o direcionamento
+                //window.location.href é a url atual do navegador, que será trocada para o href de a.
+                window.location.href = link.href
+            }, tempo*1000)
+        }
+
+        const a = document.querySelector('[tempo-espera]') //Seleciona o elemento do atributo
+        a.onclick = navegarEmXseg //Ao clicar executa a função passando o event como parâmetro
+    </script>
+</body>
+
+
+<!-- <Código original
+<head>
+    <meta charset='UTF-8'>
+    <title>Trabalhando com Eventos #01</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
 <body class="conteudo exercicio">
     <div>
         <a href="https://google.com.br">Google</a>
     </div>
     <script>
-        // ...
+        
     </script>
-</body>
+</body>-->

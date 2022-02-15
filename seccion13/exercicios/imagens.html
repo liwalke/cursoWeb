@@ -1,42 +1,56 @@
 <h1>Imagens</h1>
 
-<p>
-    <img src="http://files.cod3r.com.br/curso-web/imagem1.jpg"
-    alt="Muro da Cidade"
-    width="513" height="342"
-    title="Muro da cidade por Tarso Bersa">
-</p>
-<p>
-    <img src="http://files.cod3r.com.br/curso-web/imagem2.gif"
-    alt="Intro Cod3r"
-    height="342">
-</p>
-<p class="circular">
-    <img src="http://files.cod3r.com.br/curso-web/imagem3.png"
-    alt="Rio de Janeiro"
-    height="342">
-</p>
-
-<p class="texto">
-    <img src="http://files.cod3r.com.br/curso-web/avatar.jpg"
-    alt="Avatar"
-    height="50"
-    align="left">
-    Tetcs dfsfgdf fg fgds fdfgsdhtj ryktunsj foghsdfojvnzx hprituywl
-    asdljfnasdf nldvajvsdn ncxm tiwupgw qálsdvçf pkérfgjm nlklvp
-    sghshetyk gulghf dfgjdfgjdh
-</p>
-
-<p class="cidade">
-
-</p>
+<div>
+    <p>
+        <img src="http://files.cod3r.com.br/curso-web/imagem1.jpg"
+        alt="Muro da Cidade"
+        width="513" height="342"
+        title="Muro da cidade por Tarso Bersa">
+    </p>
+    <p>
+        <img src="http://files.cod3r.com.br/curso-web/imagem2.gif"
+        alt="Intro Cod3r"
+        height="342">
+    </p>
+    <p class="circular">
+        <img src="http://files.cod3r.com.br/curso-web/imagem3.png"
+        alt="Rio de Janeiro"
+        height="342">
+    </p>
+    
+    <p class="texto">
+        <img src="http://files.cod3r.com.br/curso-web/avatar.jpg"
+        alt="Avatar"
+        height="50"
+        align="left">
+        Tetcs dfsfgdf fg fgds fdfgsdhtj ryktunsj foghsdfojvnzx hprituywl
+        asdljfnasdf nldvajvsdn ncxm tiwupgw qálsdvçf pkérfgjm nlklvp
+        sghshetyk gulghf dfgjdfgjdh
+    </p>
+    
+    <p class="cidade">
+    
+    </p>
+    
+    <p>
+        <picture>
+            <source srcset="http://files.cod3r.com.br/curso-web/logo-larga.png"
+                media="(min-width: 600px)"> <!--Só vai exibir a imagem logo-larga se o tamanho for maior que 600px, se for menor, vai para a imagem abaixo-->
+                <img src="http://files.cod3r.com.br/curso-web/logo-estreita.png" alt="Logo">
+        </picture>
+    </p>
+</div>
 
 <style>
+
+    p {
+        position: absolute;
+        display: none;
+    }
     .circular {
         width: 513px;
         background-color: gray;
     }
-
 
     .texto {
         width: 400px;

@@ -1,0 +1,33 @@
+@font-face {
+    font-family: 'Pixel';
+    src: url('../fonts/Pixel.ttf') format('truetype');
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.conteudo {
+    background-color: rgb(89, 187, 248);
+}
+
+.pontuacao {
+    float: right;
+    margin-right: 20px;
+    color: white;
+    font-family: 'Pixel';
+    font-size: 40px;
+}
+
+.bird {
+    position: absolute;
+    height: 100%vh;
+    left: 40%;
+    bottom: 0%;
+}
+
+.bird img {
+    width: 50px;
+}

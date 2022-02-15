@@ -10,6 +10,20 @@
 <body class="conteudo exercicio">
     <div>Elemento</div>
     <script>
-        // ...
+        //Movendo o elemento pela página
+
+        const item = document.querySelector('div')
+        item.style.position = 'absolute' //Para permitir posicionar o elemento de forma absoluta
+
+        item.onmousemove = e => {
+            const item = e.target
+            item.style.cursor = 'move' //Só altera o curso
+            
+            //e.buttons se for clicado vai ficar diferente de zero, ou seja, verdadeiro
+            if (e.buttons) {
+                item.style.top = `${e.clientY - (item.clientHeight / 2)}px`
+                item.style.left = `${e.clientX - (item.clientWidth / 2)}px`
+            }
+        }
     </script>
 </body>
