@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>XMLHttpRequest #01</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class="conteudo exercicio">
+    <h1>Estados</h1>
+
+    <script>
+
+        /*o parâmetro config será um objeto com (URL, método em caso de sucesso, método em caso de erro)*/
+        function ajax(config) {
+            const xhr = new XMLHttpRequest()
+            xhr.open(config.metodo, config.url, true) //Define o tipo de requisição. true significa que a requisação vai ser async
+
+            xhr.onload = e => {
+                if (xhr.status === 200) {
+                    config.sucesso(xhr.response)
+                } else if (xhr.status >= 400) {
+                    config.erro({
+                        code: xhr.status,
+                        text: xhr.statusText
+                    })
+                }
+            }
+
+            xhr.send()
+        }
+
+        ajax({
+            url: "dados/estados.json",
+            metodo: "get",
+            sucesso(resposta) {
+                const estados = JSON.parse(resposta)
+                //PRONTO! Até a linha de cima já se tem a resposta da requisição ajax.
+
+                criarTabela(estados)
+            },
+
+            erro(e) {
+                const msg = document.createTextNode(`${e.code}${e.text}`)
+                document.body.appendChild(msg)
+            }
+        })
+
+        function criarTabela(estados) {
+            //Abaixo será manipulado a DOM para inserir uma tabela com estados recebidos na requisição
+            const linhas = estados.map(estado => {
+                const tdId = document.createElement('td')
+                tdId.innerHTML = estado.id
+
+                const tdNome = document.createElement('td')
+                tdNome.innerHTML = estado.nome
+
+                const tdSigla = document.createElement('td')
+                tdSigla.innerHTML = estado.sigla
+
+                const tr = document.createElement('tr') //Cria uma linha para tabela e insere as células nela, depois retorna a linha
+                tr.appendChild(tdId)
+                tr.appendChild(tdNome)
+                tr.appendChild(tdSigla)
+
+                return tr
+            })
+            const tabela = document.createElement('table') //cria a tabela na DOM
+            linhas.forEach(linha => tabela.appendChild(linha)) //Insere todas linhas na tabela
+            document.body.appendChild(tabela) //Depois de criar a tabela ela é inserida no body
+        }
+    </script>
+</body>

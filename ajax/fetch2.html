@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Fetch API #02</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+    <style>
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        form input,
+        form select,
+        form button {
+            margin: 10px;
+            font-size: 1.6em;
+        }
+    </style>
+</head>
+
+<body class="conteudo exercicio">
+    <h1>Formulário Via Fetch</h1>
+    <form name="usuarioForm" action="formulario" method="post">
+        <input type="text" name="nome" placeholder="Nome..." />
+        <input type="text" name="sobrenome" placeholder="Sobrenome..." />
+        <button>Salvar</button>
+    </form>
+    <div id="resultado"></div>
+    <script>
+        //intercepta o evento de submissão do formulário denominado usuarioForm
+        document.usuarioForm.onsubmit = async e => {
+            e.preventDefault()
+
+            const form = e.target
+            const data = new FormData(form) //Pega todos os dados que foram preenchidos no formulário e joga em data
+            data.append('ajax', true) //Agora é possível fazer alterações nos dados como um append.. entre outras
+
+            //A requisição fetch pode receber vários parâmetros, para isso é necessário passar um objeto para ela...
+            const options = {
+                method: form.method, //'post'
+                body: new URLSearchParams(data) //Essa parte eu não entendi
+            }
+            
+            const resultado = document.getElementById('resultado')
+            fetch(form.action, options) //form.action é a URL
+                .then(resp => resp.json())
+                .then(json => {
+                    //Coloca os dados interceptados na div resultado
+                    resultado.innerHTML = JSON.stringify(json)
+                })
+                .catch(error => {
+                    //Colocar o erro na div resultado
+                    resultado.innerHTML = error
+                })
+        }
+    </script>
+</body>
