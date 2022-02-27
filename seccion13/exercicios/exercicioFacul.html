@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício</title>
+</head>
+<body>
+    <h1>Tabela de produtos de informática</h1>
+    <table>
+        <caption>Produtos</caption>
+        <thead>
+            <tr>
+                <th>Produto</th>
+                <th>Preço</th>
+                <th>Quantidade</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Pen Drive 16GB</td>
+                <td>R$29,50</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>HD Externo 1TB</td>
+                <td>R$244,90</td>
+                <td>2</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>Total</td>
+                <td>R$519,30</td>
+            </tr>
+        </tfoot>
+    </table>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        th, td{
+            padding: 10px;
+        }
+        tbody td, tfoot td{
+            border: solid 3px #bbb;
+        }
+        tbody tr:hover {
+            background-color: #dedede;
+        }
+        tfoot{
+            background-color: #444;
+            font-weight: bold;
+            color: #fff;
+        }
+    </style>
+</body>
+</html>
